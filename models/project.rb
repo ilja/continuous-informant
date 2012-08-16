@@ -12,8 +12,8 @@ class Project
 
   def self.retreive_all
     projects = []
-    projects += JenkinsParser.new("http://rizzo:8081/api/xml").parse
-    projects += TeamcityParser.new("http://scooter:666").parse
+    projects += JenkinsParser.new(settings.jenkins_url).parse
+    projects += TeamcityParser.new(settings.teamcity_url).parse
     projects
   end
 end

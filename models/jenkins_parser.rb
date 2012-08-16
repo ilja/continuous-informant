@@ -7,7 +7,7 @@ class JenkinsParser
   end
 
   def parse
-    doc = Nokogiri::XML(open(@url))
+    doc = Nokogiri::XML(open(@url + "/api/xml"))
 
     projects = []
 
