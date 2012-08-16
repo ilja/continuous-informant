@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Continuous Informant</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <meta http-equiv="refresh" content="180;url=/" />
+</head>
+<body>
+
+  <div class="container">
+
+  <% @projects.each do |project| %>
+    <div class="project <%= Status.to_name(project.status).downcase %>">
+      <div class="label">
+        <img src="/images/<%= Status.to_name(project.status).downcase %>.png" height="48" width="48" alt="<%= Status.to_name(project.status).downcase %>" class="icon" />
+        <%= project.name %>
+      </div>
+    </div>
+  <% end %>
+
+  </div>
+
+</body>
+</html>
