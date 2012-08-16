@@ -3,16 +3,24 @@
 <head>
   <title>Continuous Informant</title>
   <link rel="stylesheet" href="/css/style.css">
-  <meta http-equiv="refresh" content="180;url=/" />
+  <link rel="stylesheet" href="/css/font-awesome.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="180; url=/" />
 </head>
 <body>
 
   <div class="container">
 
   <% @projects.each do |project| %>
-    <div class="project <%= Status.to_name(project.status).downcase %>">
+    <div class="project">
       <div class="label">
-        <img src="/images/<%= Status.to_name(project.status).downcase %>.png" height="48" width="48" alt="<%= Status.to_name(project.status).downcase %>" class="icon" />
+        <% if project.status == :success %>
+          <i class="icon-ok"></i>
+        <% elsif project.status == :failing %>
+          <i class="icon-bolt"></i>
+        <% else %>
+          <i class="icon-eye-open"></i>
+        <% end %>
         <%= project.name %>
       </div>
     </div>

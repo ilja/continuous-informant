@@ -24,11 +24,11 @@ class JenkinsParser
   def parse_build_status_from_color(color_status)
     case color_status
     when /blue/
-      return Status::SUCCESS
+      return :success
     when /red/
-      return Status::FAILING
+      return :failing
     end
-    return Status::UNKNOWN
+    return :unknown
   end
 
 end

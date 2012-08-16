@@ -1,5 +1,4 @@
 require 'faraday'
-require_relative 'status'
 
 class TeamcityParser
   def initialize(url)
@@ -23,11 +22,11 @@ class TeamcityParser
 
   def parse_build_status(buildstatus)
     if buildstatus == "Success"
-      return Status::SUCCESS
+      return :success
     elsif buildstatus == "Failure"
-      return Status::FAILING
+      return :failing
     end
-    return Status::UNKNOWN
+    return :unknown
   end
 
 end
